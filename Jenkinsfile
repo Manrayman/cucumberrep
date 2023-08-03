@@ -5,8 +5,8 @@ pipeline {
        
         stage('Build') {
             steps {
-                
-                echo $MAVEN_HOME
+            tool name: 'Maven', type: 'maven'
+             sh 'mvn clean install'
                 }
             }
         }
