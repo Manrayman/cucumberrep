@@ -1,15 +1,13 @@
 pipeline {
     agent any
-    tools { 
-      maven 'MAVEN_HOME' 
-      jdk 'JAVA_HOME' 
-    }
+   
     stages {
        
         stage('Build') {
             steps {
           
-             sh 'mvn install'
+             def mvnHome = tool name: 'Maven', type: 'maven'
+                sh "${mvnHome}/bin/mvn package"
                 }
             }
         }
