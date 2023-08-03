@@ -5,8 +5,8 @@ pipeline {
        
         stage('Build') {
             steps {
-            tool name: 'Maven', type: 'maven'
-             sh 'mvn clean install'
+          def mvnhm=tool name: 'Maven', type: 'maven'
+             sh '$(mvnhm)/bin/mvn install'
                 }
             }
         }
